@@ -4,7 +4,7 @@
 @author: Just Pé Jonasse（j.p.jonasse@uu.nl）
 """
 #################################################################################################
-### # ----- Imports all necessary python packages -----
+### # ----- Imports all necessary python packages ----- #TODO: move this package list to an __init__.py file
 #################################################################################################
 import time
 from pathlib import Path
@@ -26,7 +26,7 @@ from py4dstem_radial.config import (
     OutputConfig,
     AutoDiskConfig,
 )
-from py4dstem_radial.samples import samples
+from py4dstem_radial.samples import samples #TODO: replace samples.py by a readable json file that is parsed by the script
 from py4dstem_radial.vacuumprobe import get_vacuum_probe
 from py4dstem_radial.masks import (
     lowest_intensity_roi,
@@ -98,6 +98,7 @@ mpl.rcParams['figure.labelsize'] = 18
 ### # ----- Define the directories that contain the datafiles -----
 #################################################################################################
 # Dirpath is the directory containing the raw 4DSTEM data and possibly a corresponding ADF image. Dirpath2 is the analyses will end up. 
+#TODO: change this to a config file or make the directory paths parseable from the command line with argparser https://docs.python.org/3/library/argparse.html
 dirpath = ""
 dirpath2 = ""
 #################################################################################################
@@ -111,6 +112,7 @@ output_config = OutputConfig()
 ### # ----- Define the samples to analyze. Samples represent the folder name -----
 ### # ----- located at dirpath that contains two files; Diffraction SI.dm4 and an ADF image.-----
 #################################################################################################
+#TODO: make this a parseable input instead of a hardcoded list
 samples_to_analyze = [
      "Particle8",
 ]
@@ -435,7 +437,7 @@ for samplename in samples_to_analyze:
     }
     
     # Save configurations to a txt file to allow for easy copying back into python. 
-    with open(dirpath2+output_config.output_dir+f"{samplename}_config.txt", "w", encoding="utf-8") as f:
+    with open(f'{dirpath2}{output_config.output_dir}{samplename}_config.txt', "w", encoding="utf-8") as f:
         f.write(pformat(saveconfig, sort_dicts=False))
     print("--- %s seconds ---" % (time.time() - start_time))
-    # plt.close('all')
+    plt.close('all')

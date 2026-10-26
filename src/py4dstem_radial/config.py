@@ -7,6 +7,7 @@
 from dataclasses import dataclass
 @dataclass
 class AnalysisConfig:
+    #TODO: add documentation to the dataclass, so that it is directly readable by the user from the main script
     # Peak detection / fitting
     # The allowed hkl values. Only cubic crystals are supported for now. 
     # hkllist: tuple = (3, 4, 8, 11, 12)
