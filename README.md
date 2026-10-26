@@ -5,7 +5,7 @@
 ## Installation:
 It is recommended to create a fresh conda environment, download the repository and perform a editable pip install. 
 
-Example for 4DSTEM_Radial v1.0:
+Example for 4DSTEM_Radial v0.1.0:
 
 ### 1. Create and activate the environment
 
