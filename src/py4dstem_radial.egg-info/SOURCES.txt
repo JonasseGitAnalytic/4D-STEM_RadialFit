@@ -1,3 +1,5 @@
+LICENSE
+README.md
 pyproject.toml
 src/py4dstem_radial/__init__.py
 src/py4dstem_radial/autodisk.py
