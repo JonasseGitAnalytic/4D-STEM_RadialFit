@@ -22,6 +22,7 @@ Install the required packages using Conda:
 	conda install -c conda-forge scipy=1.15.3
 	conda install -c conda-forge matplotlib=3.10.6
 	conda install -c conda-forge py4DSTEM=0.14.18
+	conda install -c conda-forge pandas=3.0.6
 	conda install -c conda-forge pywin32
 
 The pywin32 dependency is intended for Windows environments. Install it only if required by your workflow. If you have a Nvidia GPU available, you can significantly speed up disk detection operations. For GPU accelerated analyses, also install the following packages:
