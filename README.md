@@ -41,7 +41,15 @@ Editable installation allows changes to the source code to be used without reins
 In the accompanying (interactive) python script, `4DSTEMRadialAnalysis.py`, we showcase its use for a complex polycrystalline Pt-shell AuCu-core nanoparticle. It documents the workflow and explains how to use the analysis functions provided in the source modules.
 <!-- Tell me where these files are and how to use them in an example folder.-->
 Three files are key to manage this package. The first is `config.py`, which documents the configuration of analysis, disk detection and the general sample configuration parameters. The next is `sample.py`, which has information on each indivdual sample you wish to analyze in the same format as the `sampleconfig` dataclass documented in `config.py`. Finally, the `4DSTEMRadialAnalysis.py` file documents how to use the most important functions. 
-<!-- How am I supposed to use this script? Run it in the commandline, or import it, or? -->
-<!-- please create an example with at least some of the data included in the paper so that new users can get a sense of what kind of data they need to have, where to place it etc.-->
+
+Open the files `4DSTEMRadialAnalysis.py`, `config.py` and `sample.py` in an IDE (e.g. spyder). Three things need to be changed before the script can be run:
+1. Modify dirpath and dirpath2 to where your data is located and where you would like your analyses to end up, respectively.
+2. Add the samplename to the sample_to_analyze list (or if using the example dataset, keep it 'Particle8'). Also add your new sample to `sample.py`.
+3. In `config.py`, navigate to the dataclass `Outputconfig` and set the output_dir. This is tacked on dirpath2, to keep all analyses results together. 
+4. Optionally, disable GPU-accelerated disk detection in `config.py` by changing CUDA in the `DiskDetectionConfig` dataclass to False.
+5. Run the script in your IDE.
+
 ## Acknowledgement and citations 
-For more details on the volume-average scalar strain analysis method developed by Just Jonasse, the reader is referred to: "4D-STEM Strain Mapping of Polycrystalline Core-shell Nanoparticles" article at https://doi.org/10.26434/chemrxiv.15008328/v1. For more details on the py4DSTEM module, the reader is referred to the respective paper: Savitzky, B. H., Pelz, P. M., Barnard, E. S., et al. (2021). py4DSTEM: A Software Package for Four-Dimensional Scanning Transmission Electron Microscopy Data Analysis. Microscopy and Microanalysis, 27(4), 712–745.
+For more details on the volume-average scalar strain analysis method developed by Just Jonasse, the reader is referred to: "4D-STEM Strain Mapping of Polycrystalline Core-shell Nanoparticles" article at https://doi.org/10.26434/chemrxiv.15008328/v1. 
+For more details on the py4DSTEM package, the reader is referred to the respective paper: Savitzky, B. H., Pelz, P. M., Barnard, E. S., et al. (2021). py4DSTEM: A Software Package for Four-Dimensional Scanning Transmission Electron Microscopy Data Analysis. Microscopy and Microanalysis, 27(4), 712–745. https://doi.org/10.1017/S1431927621000477
+For more details on the AutoDisk detection method, the reader is referred to the respective paper: Wang, S.; Eldred, T. B.; Smith, J. G.; Gao, W. AutoDisk: Automated Diffraction Processing and Strain Mapping in 4D-STEM. Ultramicroscopy 2022, 236, 113513. https://doi.org/10.1016/j.ultramic.2022.113513
