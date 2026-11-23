@@ -73,7 +73,7 @@ def fit_lattice_parameter_1D(
     k_broadening=0.02,
     fit_all_intensities=True,
     constrain_range=False,
-    a_ref_fixed=4.0782,
+    a_ref_fixed=3.92,
     a_bounds=(0.5, 1.5),
 ):
     """
@@ -99,7 +99,7 @@ def fit_lattice_parameter_1D(
            If False, use a_bounds as fractional bounds relative to latpar.
        a_ref_fixed: float, optional
            Reference lattice parameter, in Å, used to set the ±5% fitting range
-           when constrain_range is True. Defaults to 4.0782.
+           when constrain_range is True. Defaults to 3.92.
        a_bounds: tuple[float, float], optional
            Fractional lower and upper bounds relative to latpar when
            constrain_range is False. Defaults to (0.5, 1.5).
@@ -169,7 +169,7 @@ def estimate_a_for_pixel_from_bvm(
         num_bins:int=150,
         k_broadening:float=0.005,
         a_ref_fixed=None,
-        latpar:float=4.0782,
+        latpar:float=3.92,
         )->tuple[float,float]:
     """
         Estimate the cubic lattice parameter from the radial intensity profile of
@@ -210,7 +210,7 @@ def estimate_a_for_pixel_from_bvm(
             therefore expected for the fit to run successfully.
         latpar: float, optional
             Lattice parameter used to normalize the reported uncertainty percentage.
-            Defaults to 4.0782.
+            Defaults to 3.92.
 
         Function purpose:
             Calculates a radial profile from the selected pixel's Bragg Vector Map,
@@ -346,5 +346,6 @@ def calculate_lattice_parameter_maps(
             except (RuntimeError, ValueError):
                 a_map[i, j] = np.nan
                 strain_std_map[i, j] = np.nan
+
 
     return a_map, strain_std_map, nonzero_mask
