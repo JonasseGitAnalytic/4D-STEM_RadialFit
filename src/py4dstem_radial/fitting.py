@@ -242,7 +242,7 @@ def estimate_a_for_pixel_from_bvm(
     k_broadening = popt[1]
     # int_scales = popt[2:]
     sigma_a=np.sqrt(pcov[0,0])*2
-    sigma_a_percent=sigma_a/latpar*100
+    sigma_a_percent=sigma_a/a_ref_fixed*100
     if return_details:
         return best_a,sigma_a_percent,{
             'q_centers': q_centers,
@@ -349,3 +349,4 @@ def calculate_lattice_parameter_maps(
 
 
     return a_map, strain_std_map, nonzero_mask
+
