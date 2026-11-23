@@ -84,7 +84,7 @@ class SampleConfig:
     #Whether to load a pre-existing mask from for example imageJ and if so from where. 
     mask_directory: str | bool | None = None
     #Otsu threshold cutoff, higher values mean more cutoff.
-    otsucutoff: float = 0.5
+    otsucutoff: float = 0.8
 @dataclass #This dataclass is only used for the AutoDisk disk fitting approach. 
 class AutoDiskConfig:
     c: float = 0.7 #The fraction used to reduce the probe for cross-correlation. Basically, this represents the reduced disk size.
@@ -119,4 +119,5 @@ class OutputConfig:
     save: bool = True
     save_data: bool = True
     save_figures: bool = True
+
     output_dir: str = '' 
